@@ -109,6 +109,12 @@ describe 'Rover class' do
 		rover = Rover.new(3, 3, "E", ["M", "M", "R", "M", "M", "R", "M", "R", "R", "M"])
 		expect(rover.end_position).to eq("5 1 E")
 	end
+
+	it 'should return the error "Rover overboard!" for the input "12N, MMMMMMMMMM"' do
+		plateau = Plateau.new(5,5)
+		rover = Rover.new(1, 2, "N", ["M", "M", "M", "M", "M", "M", "M", "M", "M", "M"], plateau)
+		expect{rover.end_position}.to raise_error(RuntimeError, "Rover overboard!")
+	end
 end
 
 

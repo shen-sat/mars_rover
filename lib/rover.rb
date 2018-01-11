@@ -4,7 +4,8 @@ class Rover
 	attr_accessor :direction
 	attr_reader :instruction
 
-	def initialize(x, y, direction, instruction)
+	def initialize(x, y, direction, instruction, plateau)
+		@plateau = plateau
 		@x = x
 		@y = y
 		@direction = direction
@@ -63,7 +64,11 @@ class Rover
 	end
 
 	def end_position
-		return "#{@x} #{@y} #{@direction}"
+		if @y > @plateau.height
+			raise "Rover overboard!"
+		else
+			return "#{@x} #{@y} #{@direction}"
+		end
 	end
 
 end

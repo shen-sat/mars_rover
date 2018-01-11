@@ -19,4 +19,17 @@ describe 'application' do
 		end
 
 	end
+
+	it 'should return error if Rover goes beyond plateau' do 
+		Open3.popen3('ruby application.rb')	do |stdin, stdout, stderr, thread|
+			stdin.puts("5 5")
+			stdin.puts("1 2 N")
+			stdin.puts("MMMMMMMMMM")
+			stdin.puts("")
+
+			expect(stderr.read).to eq("Rover overboard!")
+
+		end
+
+	end
 end
