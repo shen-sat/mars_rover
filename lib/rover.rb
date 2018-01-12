@@ -64,7 +64,7 @@ class Rover
 	end
 
 	def end_position
-		if @y > @plateau.height
+		if @y > @plateau.height || @x > @plateau.width || @y < 0 || @x < 1
 			raise "Rover overboard!"
 		else
 			return "#{@x} #{@y} #{@direction}"

@@ -18,7 +18,7 @@ class Controller
 				break if pos_str == ""
 				pos_input = parser.validate_start_pos(pos_str)
 				instruct = gets.chomp
-				res += Rover.new(pos_input[0], pos_input[1], pos_input[2], parser.validate_instruct(instruct)).end_position + "\n"
+				res += Rover.new(pos_input[0], pos_input[1], pos_input[2], parser.validate_instruct(instruct), plateau).end_position + "\n"
 			end
 		res
 	end

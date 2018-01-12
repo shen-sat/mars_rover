@@ -27,7 +27,8 @@ describe 'application' do
 			stdin.puts("MMMMMMMMMM")
 			stdin.puts("")
 
-			expect(stderr.read).to eq("Rover overboard!")
+			welcome_message ="Please enter inputs line by line, followed by a new line at the end:\n"
+			expect(stdout.read).to eq(welcome_message + "Rover overboard!: Please try again\n")
 
 		end
 
