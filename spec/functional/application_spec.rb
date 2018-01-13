@@ -37,15 +37,16 @@ describe 'application' do
 	it 'should return error if user enters incorrect plateau and then prompt user to re-enter plateau' do 
 		Open3.popen3('ruby application.rb')	do |stdin, stdout, stderr, thread|
 			stdin.puts("5 A")
+			stdin.puts("5 A")
 			stdin.puts("5 5")
 			stdin.puts("1 2 N")
-			stdin.puts("MMMMMMMMMM")
+			stdin.puts("LMLMLMLMM")
 			stdin.puts("")
 
 			welcome_message ="Please enter inputs line by line, followed by a new line at the end:\n"
 			wrong_plat = "Incorrect plateau: Please try again\n"
 			answer = "1 3 N\n"
-			expect(stdout.read).to eq(welcome_message + wrong_plat + answer)
+			expect(stdout.read).to eq(welcome_message + wrong_plat + wrong_plat + answer)
 
 		end
 
